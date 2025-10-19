@@ -60,6 +60,7 @@
 
 #define PI 3.14159265359
 
+#define DEG2RAD(x) ((x) * PI / 180.f)
 #define SQ(x) ((x) * (x))
 
 #endif

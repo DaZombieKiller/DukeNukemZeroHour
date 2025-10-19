@@ -533,8 +533,13 @@ void func_80011180(void)
 {
     f32 f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11, f12, f13, f14;
     s32 i;
-    f1 = sinf(0.61086524f);
-    f2 = cosf(0.61086524f);
+#ifdef WIDESCREEN
+    f1 = sinf(atanf(tangentf(DEG2RAD(DEFAULT_FOV / 2.f))) * (ASPECT_RATIO / ASPECT_4_3));
+    f2 = cosf(atanf(tangentf(DEG2RAD(DEFAULT_FOV / 2.f))) * (ASPECT_RATIO / ASPECT_4_3));
+#else
+    f1 = sinf(DEG2RAD(DEFAULT_FOV / 2.f));
+    f2 = cosf(DEG2RAD(DEFAULT_FOV / 2.f));
+#endif
     f3 = ((SCREEN_WIDTH / 2.f) - 1.f) / (f1 / f2);
     f5 = ((SCREEN_HEIGHT / 2.f) - 1.f);
     f4 = 1.0 / sqrt(SQ(f3) + SQ(f5));

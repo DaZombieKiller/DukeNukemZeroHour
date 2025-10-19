@@ -9,10 +9,19 @@
 #include "static/11B300.h"
 #include "static/11D520.h"
 #include "code0/code0.h"
+#ifdef WIDESCREEN
+#include "fast3d/gfx_api.h"
+#endif
 
 #define SCREEN_WIDTH 320
 #define SCREEN_HEIGHT 240
-#define ASPECT_RATIO (4.0f / 3.0f)
+#define DEFAULT_FOV 70
+#define ASPECT_4_3 (4.f / 3.f)
+#ifdef WIDESCREEN
+#define ASPECT_RATIO (gfx_current_window_dimensions.aspect_ratio)
+#else
+#define ASPECT_RATIO ASPECT_4_3
+#endif
 
 #define GFX_TASKS 2
 #define DISPLAY_LIST_SIZE 0x1400
