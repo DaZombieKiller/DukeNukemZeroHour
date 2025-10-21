@@ -212,8 +212,7 @@ void scanSectors(s32 posx, s32 posy, s32 posz, f32 arg3, s16 sectnum)
 
     D_8012FC40 = 1;
 #ifdef WIDESCREEN
-    /*TODO: understand magic value*/
-    viewrange = (klabs(D_8016A15C) * 0.7999999999999999) /*(1/1.25)*/ + (PI / 4);
+    viewrange = DEG2RAD(90.f);
 #else
     viewrange = (klabs(D_8016A15C) * 0.7999999999999999) /*(1/1.25)*/ + 0.6283185307179999 /*(PI/5)*/;
 #endif
