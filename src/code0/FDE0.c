@@ -634,6 +634,7 @@ static s32 func_800115E0(ModelInfo *model)
     f32 f;
     s32 i;
 
+#ifndef WIDESCREEN
     f = func_80011410(model);
     grMtxL2F(mtx, &gpDynamic->mtx3[D_801A6D80-1]);
     vec[0] = mtx[3][0] - gMapXpos * 0.5;
@@ -645,6 +646,7 @@ static s32 func_800115E0(ModelInfo *model)
         if (_dotProduct(*ptr, vec) < -f)
             return 0;
     }
+#endif
     return 1;
 }
 
